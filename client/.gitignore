@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# for converting this web app into an android app
+android
+capacitor.config.json
+ionic.config.json
