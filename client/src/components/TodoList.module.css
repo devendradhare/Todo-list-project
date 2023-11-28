@@ -1,0 +1,19 @@
+.uncompleteTasks {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+.deleteTasksButton {
+    margin: 0 10px;
+    cursor: default;
+    color: red;
+}
+
+.tasksElement {
+    margin: 0 10px;
+}
+
+.emptyTask {
+    color: gray;
+}
