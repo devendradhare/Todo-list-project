@@ -1,5 +1,10 @@
+import { useState } from "react";
 import styles from "./TodoList.module.css";
 const DoneTodos = ({ todosDone, setAsIncomplete, deleteTask }) => {
+  const [showDeleteBtn, setDeleteBtn] = useState(-1);
+  const handleOnMouseOver = (index) => {
+    setDeleteBtn(index);
+  };
   return (
     <ul>
       <h3 style={{ color: "rgb(0,255,0)" }}>uncomplete tasks</h3>
@@ -7,15 +12,30 @@ const DoneTodos = ({ todosDone, setAsIncomplete, deleteTask }) => {
         <span className={styles.emptyTask}>no tasks is available</span>
       ) : (
         todosDone.map((el, index) => (
-          <li key={index} className={styles.uncompleteTasks}>
+          <li
+            key={index}
+            className={styles.uncompleteTasks}
+            onClick={() => {
+              handleOnMouseOver(index);
+            }}
+            onMouseOver={() => {
+              handleOnMouseOver(index);
+            }}
+            onMouseOut={() => setDeleteBtn(-1)}
+          >
             <span
               className={styles.deleteTasksButton}
               onClick={() => deleteTask(index, "todosDone")}
+              style={{
+                visibility: showDeleteBtn === index ? "visible" : "hidden",
+              }}
             >
               ❌
             </span>
             <span onClick={() => setAsIncomplete(index)}>❎</span>
-            <span className={styles.tasksElement}>{el}</span>
+            <span className={styles.tasksElement}>
+              <s>{el}</s>
+            </span>
           </li>
         ))
       )}
