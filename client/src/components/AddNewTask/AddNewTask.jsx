@@ -1,7 +1,17 @@
 import { useState } from "react";
 // styles
 import styles from "./AddNewTask.module.css";
-const AddNewTask = ({ input, setInput, addTask }) => {
+// context
+import { useTodos } from "../contextAPI/TodosProvider";
+const AddNewTask = () => {
+  const {
+    input,
+    setInput,
+    addTask,
+    isUpdating,
+    updateTask1,
+    inputRef,
+  } = useTodos();
   return (
     <section className={styles.inputSection}>
       <input
@@ -10,7 +20,11 @@ const AddNewTask = ({ input, setInput, addTask }) => {
         value={input}
         placeholder="Add new task"
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && addTask()}
+        onKeyDown={(e) =>
+          e.key === "Enter" &&
+          (Object.keys(isUpdating).length ? updateTask1() : addTask())
+        }
+        ref={inputRef}
       />
       <button className={styles.addBtn} onClick={() => addTask()}>
         ADD

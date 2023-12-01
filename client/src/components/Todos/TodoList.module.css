@@ -1,0 +1,51 @@
+.uncompleteTasks {
+    display: flex;
+    padding: 10px;
+    /* flex-direction: column; */
+    /* align-items: center; */
+}
+
+
+.tasksElement {
+    padding: 0 10px;
+}
+
+.emptyTask {
+    color: gray;
+}
+
+.ulItems {
+    /* padding: 0 0 8px 0; */
+    border-radius: 5px;
+}
+
+.optionsDialog {
+    display: none;
+    padding: 5px 0 8px 3px;
+    /* justify-content: center; */
+    /* border: 1px solid rgb(80, 80, 80); */
+    border-bottom: 1px solid rgb(150, 150, 150);
+    /* border-radius: 4px 4px 0 0; */
+}
+
+.optionsIcon {}
+
+.options {}
+
+.options>span {
+    margin: 5px;
+    cursor: default;
+}
+
+.deleteTaskBtn {
+    /* visibility: hidden; */
+    color: red;
+}
+
+.completeTaskBtn {
+    color: rgb(0, 255, 0);
+}
+
+.updateTaskBtn {
+    color: rgb(128 255 248);
+}
