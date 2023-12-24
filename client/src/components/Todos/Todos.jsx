@@ -12,7 +12,7 @@ const Todos = () => {
     <ul 
     // onMouseOut={() => setActivate(-1)}
     >
-      <h3 style={{ color: "red" }}>uncomplete tasks</h3>
+      <h3 style={{ color: "lightblue" }}>Today</h3>
       {todos.length === 0 ? (
         <span className={styles.emptyTask}>no tasks is available</span>
       ) : (

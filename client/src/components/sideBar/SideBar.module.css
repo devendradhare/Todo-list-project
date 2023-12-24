@@ -1,15 +1,40 @@
 .sideBar {
-    background: #222222     ;
+    background: #222222;
     width: 18%;
-    /* border: 1px solid gray; */
+    min-width: 200px;
+    transition-duration: .5s;
 }
 
-.sideBarUl{
+.sideBarUl {
     /* background: #ff0000; */
     padding: 5px;
 }
-.sideBarUl> li{
+
+.sideBarUl>li {
     /* background: #000; */
     margin: 5px 0;
     cursor: pointer;
+}
+
+.sideBarToggleBtn {
+    display: none;
+}
+
+@media screen and (max-width:650px) {
+    .sideBar {
+        position: absolute;
+        /* left: -100%; */
+        width: 200px;
+        height: 100svh;
+        z-index: 9;
+        transition-duration: .5s;
+    }
+
+    .sideBarToggleBtn {
+        display: inline;
+        color: lightblue;
+        position: absolute;
+        right: -30px;
+        font-size: 23px;
+    }
 }

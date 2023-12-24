@@ -1,10 +1,10 @@
-
 .main {
     color: white;
     background-color: rgb(29, 29, 29);
     height: 100svh;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
 
 .nav {
@@ -19,21 +19,27 @@
     /* background: rgb(221, 215, 215); */
     flex-grow: 1;
     overflow: scroll;
-    padding: 50px;
+    padding: 50px 3%;
 }
 
 /* .makeItCenter { */
-    /* background: rgb(0, 229, 255); */
-    /* margin: 0 auto;
+/* background: rgb(0, 229, 255); */
+/* margin: 0 auto;
     max-width: 800px;
     padding: 0 4px;
     margin-bottom: 50px;
 } */
 
-.TodaysDate{
+.TodaysDate {
     background: #232320;
     display: flex;
     width: 100%;
     justify-content: space-between;
     cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+    .main {
+        flex-direction: column;
+    }
 }
