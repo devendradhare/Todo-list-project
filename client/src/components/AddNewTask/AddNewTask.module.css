@@ -1,22 +1,24 @@
-.inputSection{
-    /* background: red; */
+/* .inputSection {
+    background: red;
     display: flex;
     height: 40px;
     align-items: center;
     justify-content: center;
-}
-.input{
+} */
+
+.input {
     outline: none;
     border: none;
-    border-radius: 5px 0 0 5px ;
+    border-radius: 5px 0 0 5px;
     background: rgb(76, 75, 75);
     color: white;
     height: 35px;
     max-width: 800px;
-    flex-grow: 1;   
+    flex-grow: 1;
     padding-left: 4px;
 }
-.addBtn{
+
+.addBtn {
     background-color: rgb(222, 222, 222);
     border-radius: 0 5px 5px 0;
     border: none;

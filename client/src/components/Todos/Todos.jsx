@@ -9,7 +9,9 @@ const Todos = () => {
   const { todos } = useTodos();
   const [activate, setActivate] = useState(-1);
   return (
-    <ul onMouseOut={() => setActivate(-1)}>
+    <ul 
+    // onMouseOut={() => setActivate(-1)}
+    >
       <h3 style={{ color: "red" }}>uncomplete tasks</h3>
       {todos.length === 0 ? (
         <span className={styles.emptyTask}>no tasks is available</span>

@@ -13,16 +13,42 @@ const List = ({ activate, setActivate, listName }) => {
   } = useTodos();
   const list = listName === "todos" ? todos : todosDone;
   const handleOnMouseOver = (index) => {
-    setActivate(index);
+    if (index === activate) setActivate(-1);
+    else setActivate(index);
   };
+
   return list.map((el, index) => (
     <div
       key={index}
-      onClick={() => handleOnMouseOver(index)}
-      onMouseOver={() => handleOnMouseOver(index)}
+      // onMouseOver={() => handleOnMouseOver(index)}
       className={styles.ulItems}
-      style={activate === index ? { backgroundColor: "rgb(10, 10, 10)" } : {}}
+      style={activate === index ? { backgroundColor: "rgb(28, 28, 28)" } : {}}
     >
+      <li className={styles.uncompleteTasks}>
+        <span
+          style={{ color: "rgb(0,255,0)", cursor: "pointer" }}
+          onClick={() => {
+            listName === "todos"
+              ? setAsComplete(index)
+              : setAsIncomplete(index);
+          }}
+        >
+          {listName === "todos" ? "✅" : "❎"}
+        </span>
+        <span className={styles.tasksElement}>{el.text}</span>
+        <span
+          style={{
+            cursor: "pointer",
+            fontWeight: "bolder",
+            position: "absolute",
+            right: "1%",
+            rotate: "90deg",
+          }}
+          onClick={() => handleOnMouseOver(index)}
+        >
+          ...
+        </span>
+      </li>
       <div
         className={styles.optionsDialog}
         style={
@@ -65,18 +91,6 @@ const List = ({ activate, setActivate, listName }) => {
           </span>
         </div>
       </div>
-      <li className={styles.uncompleteTasks}>
-        <span
-          onClick={() => {
-            listName === "todos"
-              ? setAsComplete(index)
-              : setAsIncomplete(index);
-          }}
-        >
-          {listName === "todos" ? "✅" : "❎"}
-        </span>
-        <span className={styles.tasksElement}>{el.text}</span>
-      </li>
     </div>
   ));
 };

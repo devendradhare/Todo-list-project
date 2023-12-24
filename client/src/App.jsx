@@ -2,9 +2,14 @@ import "./App.css";
 
 // components
 import Structure from "./components/Structure";
+import { SideBarActivate } from "./components/contextAPI/SideBarActivate";
 
 function App() {
-  return <Structure />;
+  return (
+    <SideBarActivate>
+      <Structure />
+    </SideBarActivate>
+  );
 }
 
 export default App;

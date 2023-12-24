@@ -8,12 +8,14 @@ export const useTodos = () => {
 
 export const ContextProvider = (props) => {
   const [todos, setTodos] = useState(() => {
+    // getting data from localStorage in state
     let arr = localStorage.getItem("todos");
     if (!arr) arr = [];
     else arr = JSON.parse(arr);
     return arr;
   });
   const [todosDone, setTodosDone] = useState(() => {
+    // getting data from localStorage in state
     let arr = localStorage.getItem("todosDone");
     if (!arr) arr = [];
     else arr = JSON.parse(arr);
@@ -23,6 +25,7 @@ export const ContextProvider = (props) => {
   const [isUpdating, setIsUpdating] = useState({});
   const inputRef = useRef(null);
 
+  // auto save everytime when todos and todosDone changes
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
     localStorage.setItem("todosDone", JSON.stringify(todosDone));
@@ -70,6 +73,7 @@ export const ContextProvider = (props) => {
     setInput(arr[index].text);
     inputRef.current.focus();
   };
+  // function to update the task
   const updateTask1 = () => {
     let arr = isUpdating.calledFrom === "todos" ? todos : todosDone;
     let updatingThis = arr[isUpdating.index];
